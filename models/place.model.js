@@ -26,7 +26,7 @@ email: String,
 website: String,
 // image: TBC,
 description: String,
-user: [
+addedBy: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

@@ -28,7 +28,7 @@ const userSchema = Schema({
     type: String,
     enum: ["male", "female"],
   },
-  place: [
+  placesAdded: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Place",

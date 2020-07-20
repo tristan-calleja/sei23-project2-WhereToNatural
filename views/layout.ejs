@@ -14,8 +14,8 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-        <img src="" height="40" />
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo.png" height="40" class="logo"/>
       </a>
       <button
         class="navbar-toggler"
@@ -37,21 +37,31 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/listbyname">List by Name</a>
+            <a class="nav-link" href="/listbyname">List by Name <span class="sr-only">(current)</span></a>
             <!-- change href above probably -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/listbytype">List by Type</a>
+            <a class="nav-link" href="/listbytype">List by Type <span class="sr-only">(current)</span></a>
             <!-- change href above probably -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/listbydistrict">List by District</a>
+            <a class="nav-link" href="/listbydistrict">List by District <span class="sr-only">(current)</span></a>
             <!-- change href above probably -->
           </li>
         </ul>
       </div>
     </nav>
+
+  </br>
     <%- body %>
+  </br>
+
+    <footer class="page-footer font-small bg-dark" style="color:whitesmoke;">
+      <div class="footer-copyright text-center py-3">
+        © 2020 Copyright: Tristan Calleja
+      </div>
+    </footer>
+
     <script src="/js/main.js"></script>
   </body>
 </html>
