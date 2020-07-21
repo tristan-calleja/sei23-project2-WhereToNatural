@@ -1,0 +1,47 @@
+
+<div class="container lg-12">
+    <h1>List by District</h1>
+    </br>
+    <div class="lg-12">
+      <div class="row">
+        <div class="col-lg-12">
+              <a class="btn btn-light" href="/district/new">Add New District</a>
+          </div>
+      </div>
+    </div>
+</br>
+</br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <% districts.forEach(district => { %>
+          <div class="col-md-3 mb-3 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                    <a href="district/show/<%= district._id %>">
+                        <%= district.name %>
+                    </a>
+                </h5>
+                </div>
+                
+                <h5 class="card-text text-center">
+                    A few places to visit
+                </h5>
+                <p class="card-text text-center">
+                    <%= district.places[0] %> 1
+                </p>
+                <p class="card-text text-center">
+                    <%= district.places[1] %> 2
+                </p>
+                <p class="card-text text-center">
+                    <%= district.places[2] %> 3
+                </p>
+
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>

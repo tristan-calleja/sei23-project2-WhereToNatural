@@ -63,7 +63,7 @@ app.use(expressLayouts); //Express EJS layout to make views into block
 //all routes
 app.use("/", require("./routes/place.route"));
 // app.use("/user", require("./routes/user.route"));
-// app.use("/district", require("./routes/district.route")); //ex cuisine.route in restaurants
+app.use("/district", require("./routes/district.route"));
 // app.use("/auth", require("./routes/auth.route"));
 // app.use("/", checkUser, require("./routes/place.route")); //once authentication
 

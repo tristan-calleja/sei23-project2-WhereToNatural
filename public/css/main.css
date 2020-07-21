@@ -1,6 +1,20 @@
-img {
+a:link {
+    text-decoration: none;
+    color: #A63434;
+  }
+
+  a:visited {
+    color: #A63434;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+.homepageImage {
     max-width: 100%;
     max-height: 100%;
+    border-radius: 15px;
 }
 
 .homepageImage {
@@ -14,4 +28,12 @@ img {
 
 .control-label{
     font-weight: bold;
+}
+
+.btn-form{
+    float: right;
+}
+
+.btn-light{
+    border: solid 1px black;
 }

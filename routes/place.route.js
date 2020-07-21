@@ -1,14 +1,11 @@
 const router = require("express").Router();
 const Place = require("../models/place.model");
-const User = require("../models/user.model");
+// const User = require("../models/user.model");
 const District = require("../models/district.model");
 
-// router.get("/", (req, res) => {
-//     res.render("place/home");
-// });
-
+// GET TO HOMEPAGE
 router.get("/", async (req, res) => {
-    console.log("Req User", req.user);
+    // console.log("Req User", req.user);
     try {
       //get all places
       let places = await Place.find()
@@ -22,10 +19,7 @@ router.get("/", async (req, res) => {
     }
   });
 
-// router.get("/new", (req, res) => {
-//       res.render("place/new");
-//   });
-
+//ADD A NEW PLACE
 router.get("/new", async (req, res) => {
     try {
     //   let users = await User.find();
@@ -37,31 +31,121 @@ router.get("/new", async (req, res) => {
     }
   });
 
-
 router.post("/new", (req, res) => {
-    let place = new Place(req.body);
+    console.log(req.body);
+    let placeData = {
+        name: req.body.name,
+        placeType: req.body.placeType,
+        district: req.body.district,
+        address: {
+            blockNumber: req.body.blockNumber,
+            street: req.body.street,
+            postcode: req.body.postcode,
+          },
+          phoneNumber: req.body.phoneNumber,
+          email: req.body.email,
+          website: req.body.website,
+          //img
+          description: req.body.description,
+    };
+
+    let place = new Place(placeData);
     console.log(place);
-    place.addedBy = req.user._id;
+    //Uncomment once authentication ok
+    // place.addedBy = req.user._id;
     
+    // place
+    //   .save() //save place
+    //   .then(() => {
+    //     //if saved then save user
+    //     User.findById(place.addedBy).then((user) => {
+    //       //push into placesAdded array in user model
+    //       user.placesAdded.push(place._id);
+    //       user.save().then(() => {
+    //         //if sucess redirect to home page
+    //         res.redirect("/");
+    //       });
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
     place
-      .save() //save place
-      .then(() => {
-        //if saved then save user
-        User.findById(place.addedBy).then((user) => {
-          //push into placesAdded array in user model
-          user.placesAdded.push(place._id);
-  
-          user.save().then(() => {
-            //if sucess redirect to home page
-            res.redirect("/");
-          });
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .save()
+    .then(() => {
+      res.redirect("/listbyname");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   });
 
+//   SEE PLACE IN DETAILS
+  router.get("/show/:id", async (req, res) => {
+    try {
+        let places = await Place.find()
+        .populate("district")
+        // .populate("user");
+  
+      res.render("place/show", { places });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  // EDIT A PLACE DETAILS
+  router.get("/edit/:id", async (req, res) => {
+    try {
+      let place = await Place.findById(req.params.id)
+        .populate("district")
+        // .populate("user");
+      let districts = await District.find();
+    //   let users = await User.find();
+  
+      res.render("place/edit", { place, districts }); //add "users" after districts once authentication ok
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  
+  router.post("/edit/:id", async (req, res) => {
+    try {
+      let updated = await Place.findByIdAndUpdate(req.params.id, req.body);
+      if (updated) {
+        return res.redirect("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+// SEE LIST BY NAME OF PLACE
+router.get("/listbyname", async (req, res) => {
+    try {
+        let places = await Place.find()
+        .populate("district")
+        // .populate("user");
+  
+      res.render("place/listbyname", { places });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+
+// SEE LIST BY TYPE OF PLACE
+router.get("/listbytype", async (req, res) => {
+    try {
+        let places = await Place.find()
+        .populate("district")
+        // .populate("user");
+  
+      res.render("place/listbytype", { places });
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
 
 module.exports = router;

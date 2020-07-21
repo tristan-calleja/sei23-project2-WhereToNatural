@@ -28,6 +28,10 @@ const userSchema = Schema({
     type: String,
     enum: ["male", "female"],
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   placesAdded: [
     {
       type: mongoose.Schema.Types.ObjectId,

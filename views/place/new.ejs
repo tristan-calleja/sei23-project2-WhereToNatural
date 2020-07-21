@@ -2,10 +2,10 @@
     <h1>Add a new place</h1>
 </div>
 </br>
+<form action="/new" method="POST">
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form class="form-horizontal">
                 <fieldset>
                 
                 <!-- Place Name -->
@@ -20,16 +20,16 @@
                 <div class="form-group">
                 <label class="col-md-10 control-label">Place Type</label>
                 <div class="col-md-10">
-                    <label class="checkbox-inline col-md-3">
-                    <input type="checkbox" name="placeType" value="bar">
+                    <label class="radio-inline col-md-3">
+                    <input type="radio" name="placeType" value="bar">
                     Bar
                     </label>
-                    <label class="checkbox-inline col-md-5">
-                    <input type="checkbox" name="placeType" value="restaurant">
+                    <label class="radio-inline col-md-5">
+                    <input type="radio" name="placeType" value="restaurant">
                     Restaurant
                     </label>
-                    <label class="checkbox-inline col-md-3">
-                    <input type="checkbox" name="placeType" value="shop">
+                    <label class="radio-inline col-md-3">
+                    <input type="radio" name="placeType" value="shop">
                     Shop
                     </label>
                 </div>
@@ -75,11 +75,9 @@
                 </div>
                 
                 </fieldset>
-                </form>
         </div>
 
         <div class="col-md-6">
-            <form class="form-horizontal">
                 <fieldset>
                 
                 <!-- Phone Number -->
@@ -121,10 +119,19 @@
                     <textarea class="form-control" name="description" rows="5">Describe the place in a few words</textarea>
                     </div>
                 </div>
+
+            </br>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-10">
+                    <button type="submit" class="btn btn-primary btn-form">Submit</button>
+                    </div>
+                </div>
                 
                 </fieldset>
-                </form>
         </div>
 
     </div>
 </div>
+</form>

@@ -1,0 +1,54 @@
+<h1>SHOW PLACE</h1>
+
+<div class="container mt-5">
+
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex">
+                  
+                    <h5 class="card-title">
+                    <a href="/show/<%= place._id %>">
+                        <%= place.name %>
+                    </a>
+                    , (
+                    <a href="/show/<%= district._id %>">
+                        <%= place.district %>
+                    </a>
+                    )
+                  </h5>
+  
+                  <h5 class="card-title">
+                    <a href="/edit/<%= place._id %>" class="btn btn-danger">
+                        Edit
+                    </a>
+                  </h5>
+                </div>
+  
+                <p class="card-text text-capitalize">
+                  <%= place.phoneNumber %>
+                </p>
+                <p class="card-text text-capitalize">
+                    <%= place.email %>
+                </p>
+                <p class="card-text text-capitalize">
+                    <%= place.website %>
+                </p>
+                <p class="card-text text-capitalize">
+                    <%= place.description %>
+                </p>
+                <p class="card-text text-capitalize">
+                    Added by: <%= place.addedBy.username %>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
