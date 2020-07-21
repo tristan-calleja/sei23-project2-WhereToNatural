@@ -1,1 +1,130 @@
-<h1>Well, this is new</h1>
+<div class="container col-md-11">
+    <h1>Add a new place</h1>
+</div>
+</br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal">
+                <fieldset>
+                
+                <!-- Place Name -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Place Name</label>  
+                <div class="col-md-10">
+                <input name="name" type="text" placeholder="Name" class="form-control input-md">
+                </div>
+                </div>
+                
+                <!-- Place Type -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Place Type</label>
+                <div class="col-md-10">
+                    <label class="checkbox-inline col-md-3">
+                    <input type="checkbox" name="placeType" value="bar">
+                    Bar
+                    </label>
+                    <label class="checkbox-inline col-md-5">
+                    <input type="checkbox" name="placeType" value="restaurant">
+                    Restaurant
+                    </label>
+                    <label class="checkbox-inline col-md-3">
+                    <input type="checkbox" name="placeType" value="shop">
+                    Shop
+                    </label>
+                </div>
+                </div>
+                
+                <!-- District -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">District</label>
+                <div class="col-md-10">
+                    <select name="district" class="form-control">
+                        <option value="">Select One</option>
+                        <% districts.forEach(district => { %>
+                        <option value="<%= district._id %>" > 
+                            <%= district.name %> 
+                        </option>
+                        <% }) %>
+                    </select>
+                </div>
+                </div>
+                
+                <!-- Address - Block Number -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Block/Place Number</label>  
+                <div class="col-md-10">
+                <input name="blockNumber" type="text" placeholder="###" class="form-control input-md">
+                </div>
+                </div>
+                
+                <!-- Address - Street -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Street</label>  
+                <div class="col-md-10">
+                <input name="street" type="text" placeholder="Street" class="form-control input-md">
+                </div>
+                </div>
+                
+                <!-- Address - Post code-->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Postal Code</label>  
+                <div class="col-md-10">
+                <input name="postcode" type="text" placeholder="###" class="form-control input-md">
+                </div>
+                </div>
+                
+                </fieldset>
+                </form>
+        </div>
+
+        <div class="col-md-6">
+            <form class="form-horizontal">
+                <fieldset>
+                
+                <!-- Phone Number -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Phone Number</label>  
+                <div class="col-md-10">
+                <input name="phoneNumber" type="text" placeholder="+65 XXXX XXXX" class="form-control input-md">
+                </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Email</label>  
+                <div class="col-md-10">
+                <input name="email" type="text" placeholder="newplace@newplace.com" class="form-control input-md">
+                </div>
+                </div>
+                
+                <!-- Website -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Website</label>  
+                <div class="col-md-10">
+                <input name="website" type="text" placeholder="www.newplace.com" class="form-control input-md">
+                </div>
+                </div>
+                
+                <!-- Image of the Place --> 
+                <div class="form-group">
+                <label class="col-md-10 control-label" for="filebutton">Image of the Place - TO DO</label>
+                <div class="col-md-10">
+                    <input name="filebutton" class="input-file" type="file">
+                </div>
+                </div>
+                
+                <!-- Description -->
+                <div class="form-group">
+                    <label class="col-md-10 control-label">Description (max. 240 characters)</label>
+                    <div class="col-md-10">                     
+                    <textarea class="form-control" name="description" rows="5">Describe the place in a few words</textarea>
+                    </div>
+                </div>
+                
+                </fieldset>
+                </form>
+        </div>
+
+    </div>
+</div>

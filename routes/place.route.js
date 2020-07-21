@@ -39,7 +39,6 @@ router.get("/new", async (req, res) => {
 
 
 router.post("/new", (req, res) => {
-  
     let place = new Place(req.body);
     console.log(place);
     place.addedBy = req.user._id;
