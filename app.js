@@ -14,9 +14,10 @@ Connect to MongoDB
 */
 
   mongoose.Promise = Promise;
+  let dbconnect = ( process.env.NODE_ENV == "production") ? process.env.MONGODBLIVE : process.env.MONGODBURL
 
 mongoose
-  .connect(process.env.MONGODBLIVE, {
+  .connect(dbconnect, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

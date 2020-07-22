@@ -2,6 +2,19 @@ const router = require("express").Router();
 const Place = require("../models/place.model");
 // const User = require("../models/user.model");
 const District = require("../models/district.model");
+const multer = require("multer");
+const path = require("path");
+
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "public/uploads");
+  },
+  filename: function(req, file, cb) {
+    let fileExtension = path.extname(file.originalname).split(".")[1];
+    cb(null, file.fieldname + "-" + Date.now() + "." + fileExtension);
+  }
+});
+var upload = multer({ storage: storage });
 
 // GET TO HOMEPAGE
 router.get("/", async (req, res) => {
@@ -31,7 +44,13 @@ router.get("/new", async (req, res) => {
     }
   });
 
-router.post("/new", (req, res) => {
+router.post("/new", upload.single("filebutton"), (req, res, next) => {
+    let file = req.file;
+    if (!file) {
+        const error = new Error("Please upload a file");
+        error.httpStatusCode = 400;
+        return next(error);
+      };
     console.log(req.body);
     let placeData = {
         name: req.body.name,
@@ -45,12 +64,11 @@ router.post("/new", (req, res) => {
           phoneNumber: req.body.phoneNumber,
           email: req.body.email,
           website: req.body.website,
-          //img
+          img: "/uploads/"+file.filename,
           description: req.body.description,
     };
 
     let place = new Place(placeData);
-    console.log(place);
     //Uncomment once authentication ok
     // place.addedBy = req.user._id;
     

@@ -18,30 +18,48 @@
               <div class="card-body">
                 <h5 class="card-title">
                   <a href="/show/<%= place._id %>"><%= place.name %></a>
-                    , (<%= place.district.name %>)
+                    (<% place.district.forEach(district => { %>
+                    <%= district.name %>
+                      <% }) %>
+                      )
                 </h5>
-                <h5 class="card-title">
+                
+                </div>
+
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="card-contact-details">
+                      <p class="card-text text-capitalize">
+                        <a href="tel:<%= place.phoneNumber %>">Phone</a>
+                      </p>
+                      <p class="card-text text-capitalize">
+                        <a href="mailto:<%= place.email %>">Email</a>
+                      </p>
+                      <p class="card-text text-capitalize" >
+                        <a href="<%= place.website %>">Website</a>
+                      </p>
+                    </div>
+                  </br>
+                    <p class="card-text text-capitalize">
+                      <i><%= place.description %></i>
+                    </p>
+                </div>
+              </div>
+            </br>
+              <div class="row">
+                <div class="col-md-9">
+                  <p class="card-text text-capitalize">
+                      Added by: <%= place.addedBy.username %>
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <h6 class="card-title">
                     <a href="/edit/<%= place._id %>" class="btn btn-light">
                         Edit
                     </a>
-                  </h5>
+                  </h6>
                 </div>
-  
-                <p class="card-text text-capitalize">
-                  <%= place.phoneNumber %>
-                </p>
-                <p class="card-text text-capitalize">
-                    <%= place.email %>
-                </p>
-                <p class="card-text text-capitalize">
-                    <%= place.website %>
-                </p>
-                <p class="card-text text-capitalize">
-                    <%= place.description %>
-                </p>
-                <p class="card-text text-capitalize">
-                    Added by: <%= place.addedBy.username %>
-                </p>
+              </div>
             </div>
           </div>
           <% }) %>

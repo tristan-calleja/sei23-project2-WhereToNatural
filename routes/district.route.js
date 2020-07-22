@@ -22,8 +22,8 @@ router.post("/new", (req, res) => {
 router.get("/listbydistrict", async (req, res) => {
   try {
       let districts = await District.find();
-
-    res.render("district/listbydistrict", { districts });
+      // res.json(districts);
+      res.render("district/listbydistrict", { districts });
   } catch (error) {
     console.log(error);
   }
