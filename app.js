@@ -12,8 +12,10 @@ require("dotenv").config();
 ===================
 Connect to MongoDB 
 */
+mongoose.Promise = Promise;
+
 mongoose.connect(
-    process.env.MONGODBURL,
+    process.env.MONDODBLIVE,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -72,3 +74,4 @@ app.use("/district", require("./routes/district.route"));
 app.listen(process.env.PORT, () => {
     console.log(`running on PORT ${process.env.PORT}`);
   });
+
