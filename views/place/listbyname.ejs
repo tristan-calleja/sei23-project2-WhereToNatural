@@ -10,12 +10,13 @@
     </div>
     </br>
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div class="row">
           <% places.forEach(place => { %>
-          <div class="col-md-6 mb-3 d-flex">
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex">
             <div class="card flex-fill">
               <div class="card-body">
+                <img class="card-img-top" src="<%= place.image %>" alt="Card image" style="width:100%; height: auto; max-height: 265px; margin-bottom: 5px;">
                 <h5 class="card-title">
                   <a href="/show/<%= place._id %>"><%= place.name %></a>
                     (<% place.district.forEach(district => { %>
@@ -27,7 +28,8 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-md-9">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
                     <div class="card-contact-details">
                       <p class="card-text text-capitalize">
                         <a href="tel:<%= place.phoneNumber %>">Phone</a>
@@ -39,6 +41,7 @@
                         <a href="<%= place.website %>">Website</a>
                       </p>
                     </div>
+                    <div class="col-md-1"></div>
                   </br>
                     <p class="card-text text-capitalize">
                       <i><%= place.description %></i>
@@ -47,9 +50,11 @@
               </div>
             </br>
               <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
                   <p class="card-text text-capitalize">
-                      Added by: <%= place.addedBy.username %>
+                      Added by: </br>
+                      <%= place.addedBy.username %>
                   </p>
                 </div>
                 <div class="col-md-3">
@@ -59,6 +64,7 @@
                     </a>
                   </h6>
                 </div>
+                <div class="col-md-1"></div>
               </div>
             </div>
           </div>

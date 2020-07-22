@@ -25,6 +25,10 @@ phoneNumber: String,
 email: String,
 website: String,
 // image: TBC,
+image: {
+  type: String,
+  default: "img/logo.png"
+},
 description: String,
 addedBy: [
     {

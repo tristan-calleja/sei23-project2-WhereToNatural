@@ -64,7 +64,7 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
           phoneNumber: req.body.phoneNumber,
           email: req.body.email,
           website: req.body.website,
-          img: "/uploads/"+file.filename,
+          image: "/uploads/"+file.filename,
           description: req.body.description,
     };
 

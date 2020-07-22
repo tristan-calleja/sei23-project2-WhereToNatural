@@ -37,3 +37,7 @@ a:link {
 .btn-light{
     border: solid 1px black;
 }
+
+.card-contact-details{
+    line-height: 0.5;
+}
