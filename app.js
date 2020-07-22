@@ -14,11 +14,13 @@ Connect to MongoDB
 */
 
   mongoose.Promise = Promise;
+
 mongoose
   .connect(process.env.MONDODBLIVE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("mongodb is running!");
