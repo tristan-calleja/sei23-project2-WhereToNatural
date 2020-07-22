@@ -12,20 +12,20 @@ require("dotenv").config();
 ===================
 Connect to MongoDB 
 */
-mongoose.Promise = Promise;
 
-mongoose.connect(
-    process.env.MONDODBLIVE,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    },
-    () => {
-      console.log("MongoDB connected!");
-    }
-  );
+  mongoose.Promise = Promise;
+mongoose
+  .connect(process.env.MONDODBLIVE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .then(() => {
+    console.log("mongodb is running!");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 app.use(express.static("public")); //look for static files in public folder
 app.use(express.urlencoded({ extended: true })); //collects form data
