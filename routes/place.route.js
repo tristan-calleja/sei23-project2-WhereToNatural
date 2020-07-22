@@ -2,8 +2,11 @@ const router = require("express").Router();
 const Place = require("../models/place.model");
 // const User = require("../models/user.model");
 const District = require("../models/district.model");
+
+//MULTER
 const multer = require("multer");
 const path = require("path");
+const sharp = require('sharp');
 
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
