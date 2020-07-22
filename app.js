@@ -16,7 +16,7 @@ Connect to MongoDB
   mongoose.Promise = Promise;
 
 mongoose
-  .connect(process.env.MONDODBLIVE, {
+  .connect(process.env.MONGODBLIVE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
