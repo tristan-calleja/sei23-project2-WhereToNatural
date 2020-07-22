@@ -12,7 +12,7 @@
                 <div class="form-group">
                 <label class="col-md-10 control-label">Place Name</label>  
                 <div class="col-md-10">
-                <input name="name" type="text" placeholder="Name" class="form-control input-md">
+                <input name="name" type="text" placeholder="Name" class="form-control input-md" required>
                 </div>
                 </div>
                 
@@ -39,7 +39,7 @@
                 <div class="form-group">
                 <label class="col-md-10 control-label">District</label>
                 <div class="col-md-10">
-                    <select name="district" class="form-control">
+                    <select name="district" class="form-control" required>
                         <option value="">Select One</option>
                         <% districts.forEach(district => { %>
                         <option value="<%= district._id %>" > 
@@ -100,7 +100,7 @@
                 <div class="form-group">
                 <label class="col-md-10 control-label">Website</label>  
                 <div class="col-md-10">
-                <input name="website" type="text" placeholder="www.newplace.com" class="form-control input-md">
+                <input name="website" type="text" placeholder="www.newplace.com" class="form-control input-md" required>
                 </div>
                 </div>
                 
@@ -114,9 +114,9 @@
                 
                 <!-- Description -->
                 <div class="form-group">
-                    <label class="col-md-10 control-label">Description (max. 240 characters)</label>
+                    <label class="col-md-10 control-label">Description (max. 300 characters)</label>
                     <div class="col-md-10">                     
-                    <textarea class="form-control" name="description" rows="5">Describe the place in a few words</textarea>
+                    <textarea class="form-control" name="description" rows="5" maxlength="300" placeholder="Describe the place in a few words" required></textarea>
                     </div>
                 </div>
 

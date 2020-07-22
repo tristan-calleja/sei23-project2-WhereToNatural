@@ -3,7 +3,7 @@ const Place = require("../models/place.model");
 // const User = require("../models/user.model");
 const District = require("../models/district.model");
 
-//MULTER
+//MULTER & SHARP
 const multer = require("multer");
 const path = require("path");
 const sharp = require('sharp');
@@ -54,6 +54,9 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
         error.httpStatusCode = 400;
         return next(error);
       };
+    // sharp(file)
+    //   .resize(200);
+
     console.log(req.body);
     let placeData = {
         name: req.body.name,
@@ -95,7 +98,12 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
     place
     .save()
     .then(() => {
-      res.redirect("/listbyname");
+            District.findById(place.district).then((district) => {
+                district.places.push(place.name);
+                district.save().then(() => {
+            res.redirect("/listbyname");
+            });
+        });
     })
     .catch((err) => {
       console.log(err);

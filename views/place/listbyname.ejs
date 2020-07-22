@@ -15,8 +15,8 @@
           <% places.forEach(place => { %>
           <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex">
             <div class="card flex-fill">
-              <div class="card-body">
-                <img class="card-img-top" src="<%= place.image %>" alt="Card image" style="width:100%; height: auto; max-height: 265px; margin-bottom: 5px;">
+              <div class="card-body" style="height: 40%;">
+                <img class="card-img-top img-fluid" src="<%= place.image %>" alt="Card image" style="width:100%; height: auto; margin-bottom: 5px;">
                 <h5 class="card-title">
                   <a href="/show/<%= place._id %>"><%= place.name %></a>
                     (<% place.district.forEach(district => { %>
