@@ -1,0 +1,34 @@
+
+<form action="/district/edit/<%= district._id %>" method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-4 mb-4">
+                 <h4>Edit <%= district.name %> </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="District Name" value="<%= district.name %>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <h6 class="mb-4">Places in this district:</h6>
+                    <% district.places.forEach(places => {%>
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <input type="text" value="<%= places %>">
+                                <button class="btn btn-danger btn-sm" onclick="removePlaceFromDistrict()">Delete</button>
+                            </div>
+                        </div>
+                <% }) %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <button class="btn btn-secondary" type="submit">Update</button>
+                </div>
+            </div>
+        </div>
+
+</form>

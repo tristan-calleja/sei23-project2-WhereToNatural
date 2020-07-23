@@ -29,6 +29,39 @@ router.get("/listbydistrict", async (req, res) => {
   }
 });
 
+//   SEE DISTRICT IN DETAILS
+router.get("/show/:id", (req, res) => {
+  District.findById(req.params.id)
+  .then((district) => {
+    console.log(district);
+    res.render("district/show", { district });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+});
+
+// EDIT A DISTRICT DETAILS
+router.get("/edit/:id", (req, res) => {
+  District.findById(req.params.id)
+    .then((district) => {
+      res.render("district/edit", { district });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.post("/edit/:id", (req, res) => {
+  District.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+      console.log("completed");
+      res.redirect("/district/listbydistrict");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 
 module.exports = router;
