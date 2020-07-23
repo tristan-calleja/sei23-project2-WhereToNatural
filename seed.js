@@ -194,13 +194,28 @@ const districts = [
 ];
 
 
+// District.deleteMany({})
+//     .then(() => {
+//         District.create(districts)
+//             .then(districts => {
+//                 console.log(districts)
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//             })
+//     })
+
+
+//Dyana's version
 District.deleteMany({})
-    .then(() => {
-        District.create(districts)
-            .then(districts => {
-                console.log(districts)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    })
+  .then(() => {
+    District.create(districts)
+      .then(districts => {
+        console.log(districts)
+        // we added this line below
+        mongoose.disconnect(() => console.log("done, disconnecting from db"))
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  })
