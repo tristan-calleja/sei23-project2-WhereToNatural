@@ -17,7 +17,7 @@
                     <% district.places.forEach(places => {%>
                         <div class="row">
                             <div class="col-md-6 mb-2">
-                                <input type="text" value="<%= places %>">
+                                <input type="text" value="<%= places %>" id="inputDistrictPlaces">
                                 <button class="btn btn-danger btn-sm" onclick="removePlaceFromDistrict()">Delete</button>
                             </div>
                         </div>

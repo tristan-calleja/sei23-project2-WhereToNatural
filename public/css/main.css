@@ -1,3 +1,15 @@
+
+
+.card{
+    border-radius: 10px;
+    border-color: black;
+    background-color: #F5F5F5;
+}
+
+.accordeon-cards{
+    background-color: rgba(235, 233, 233, 0.712);
+}
+
 a:link {
     text-decoration: none;
     color: #A63434;

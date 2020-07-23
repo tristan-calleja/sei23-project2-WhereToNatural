@@ -33,7 +33,6 @@ router.get("/listbydistrict", async (req, res) => {
 router.get("/show/:id", (req, res) => {
   District.findById(req.params.id)
   .then((district) => {
-    console.log(district);
     res.render("district/show", { district });
   })
   .catch((err) => {
