@@ -15,8 +15,8 @@
       <div class="col-md-12">
         <div class="row">
           <% districts.forEach(district => { %>
-          <div class="col-lg-3 col-md-4 col-sm-10 mb-3 d-flex align-items-stretch">
-            <div class="card">
+          <div class="col-lg-3 col-md-4 col-sm-12 mb-3 d-flex align-items-stretch">
+            <div class="card flex-fill">
               <div class="card-body">
                 <h5 class="card-title">
                     <a href="district/show/<%= district._id %>">
@@ -25,11 +25,12 @@
                 </h5>
                 </div>
                 <div class="row">
-                  <div class="col-md-1"></div>
-                  <div class="col-md-10 mb-3">
+                  <div class="col-md-1 col-sm-1 col-xs-1 mb-3"></div>
+                  <div class="col-md-10 col-sm-10 col-xs-10 mb-3">
                     <h5 class="card-text text-left">
                       A few places to visit
                     </h5>
+                  </br>
                     <p >
                       • <%= district.places[0] %>
                     </p>
@@ -40,7 +41,7 @@
                       • <%= district.places[2] %>
                     </p>
                   </div>
-                  <div class="col-md-1"></div>
+                  <div class="col-md-1 col-sm-1 col-xs-1 mb-3"></div>
                 </div>
 
             </div>

@@ -62,7 +62,7 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
         name: req.body.name,
         placeType: req.body.placeType,
         district: req.body.district,
-        address: {
+        fullAddress: {
             blockNumber: req.body.blockNumber,
             street: req.body.street,
             postcode: req.body.postcode,
@@ -113,8 +113,8 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
 //   SEE PLACE IN DETAILS
   router.get("/show/:id", async (req, res) => {
     try {
-        let places = await Place.find()
-        .populate("district")
+        let places = await Place.findById(req.params.id)
+        .populate("district");
         // .populate("user");
   
       res.render("place/show", { places });
@@ -127,7 +127,7 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
   router.get("/edit/:id", async (req, res) => {
     try {
       let place = await Place.findById(req.params.id)
-        .populate("district")
+        .populate("district");
         // .populate("user");
       let districts = await District.find();
     //   let users = await User.find();
@@ -142,7 +142,7 @@ router.post("/new", upload.single("filebutton"), (req, res, next) => {
     try {
       let updated = await Place.findByIdAndUpdate(req.params.id, req.body);
       if (updated) {
-        return res.redirect("/");
+        return res.redirect("/listbyname");
       }
     } catch (error) {
       console.log(error);

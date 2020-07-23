@@ -1,0 +1,139 @@
+<div class="container col-md-11">
+    <h1>EDIT</h1>
+</div>
+</br>
+<form action="/edit/<%= place._id %>"" method="POST" enctype="multipart/form-data">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+                <fieldset>
+                
+                <!-- Place Name -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Place Name</label>  
+                <div class="col-md-10">
+                <input name="name" type="text" placeholder="Name" class="form-control input-md" value="<%= place.name %>" required>
+                </div>
+                </div>
+                
+                <!-- Place Type -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Place Type</label>
+                <div class="col-md-10">
+                    <label class="radio-inline col-md-3">
+                    <input type="radio" name="placeType" value="bar" <%= place.placeType == "bar" ? "checked" : "" %> >
+                    Bar
+                    </label>
+                    <label class="radio-inline col-md-5">
+                    <input type="radio" name="placeType" value="restaurant" <%= place.placeType == "restaurant" ? "checked" : "" %>>
+                    Restaurant
+                    </label>
+                    <label class="radio-inline col-md-3">
+                    <input type="radio" name="placeType" value="shop" <%= place.placeType == "shop" ? "checked" : "" %>>
+                    Shop
+                    </label>
+                </div>
+                </div>
+                
+                <!-- District - TO FIX -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">District</label>
+                <div class="col-md-10">
+                    <select name="district" class="form-control"  required>
+                        <option value="">Select One</option>
+                        <% districts.forEach(district => { %>
+                        <option value="<%= district._id %>" 
+                            <%= (district._id.equals(place.district._id)) ? "selected": "" %> > 
+                            <%= district.name %> 
+                        </option>
+                        <% }) %>
+                    </select>
+                </div>
+                </div>
+
+                <!-- Address - Block Number -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Block/Place Number</label>  
+                <div class="col-md-10">
+                <input name="blockNumber" type="text" placeholder="###" class="form-control input-md" value="<%= place.fullAddress.blockNumber %>">
+                </div>
+                </div>
+                
+                <!-- Address - Street -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Street</label>  
+                <div class="col-md-10">
+                <input name="street" type="text" placeholder="Street" class="form-control input-md" value="<%= place.fullAddress.street %>">
+                </div>
+                </div>
+                
+                <!-- Address - Post code-->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Postal Code</label>  
+                <div class="col-md-10">
+                <input name="postcode" type="text" placeholder="###" class="form-control input-md" value="<%= place.fullAddress.postcode %>">
+                </div>
+                </div>
+                
+                </fieldset>
+        </div>
+
+        <div class="col-md-6">
+                <fieldset>
+                
+                <!-- Phone Number -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Phone Number</label>  
+                <div class="col-md-10">
+                <input name="phoneNumber" type="text" placeholder="+65 XXXX XXXX" class="form-control input-md" value="<%= place.phoneNumber %>">
+                </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Email</label>  
+                <div class="col-md-10">
+                <input name="email" type="text" placeholder="newplace@newplace.com" class="form-control input-md" value="<%= place.email %>">
+                </div>
+                </div>
+                
+                <!-- Website -->
+                <div class="form-group">
+                <label class="col-md-10 control-label">Website</label>  
+                <div class="col-md-10">
+                <input name="website" type="text" placeholder="www.newplace.com" class="form-control input-md" value="<%= place.website %>" required>
+                </div>
+                </div>
+                
+                <!-- FIX -->
+                <!-- Image of the Place --> 
+                <div class="form-group">
+                <label class="col-md-10 control-label" for="filebutton">Image of the Place - TO DO</label>
+                <div class="col-md-10">
+                    <input name="filebutton" class="input-file" type="file"  value="<%= place.image %>"> 
+                </div>
+                </div>
+                
+                <!-- Description -->
+                <div class="form-group">
+                    <label class="col-md-10 control-label">Description (max. 300 characters)</label>
+                    <div class="col-md-10">                     
+                    <textarea class="form-control" name="description" rows="5" maxlength="300" placeholder="Describe the place in a few words" value="<%= place.description %>" required></textarea>
+                    </div>
+                </div>
+
+            </br>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-10">
+                    <button type="submit" class="btn btn-primary btn-form">Submit</button>
+                    </div>
+                </div>
+                
+                </fieldset>
+        </div>
+
+    </div>
+</div>
+</form>

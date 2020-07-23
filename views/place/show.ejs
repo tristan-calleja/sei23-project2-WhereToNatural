@@ -1,48 +1,85 @@
-<h1>SHOW PLACE</h1>
-
 <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <h6><a href="/listbyname" style="color: black !important;">
+            Back to List
+        </a></h6>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-2">
+
 
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12 col-lg-12 col-xl-12">
         <div class="row">
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 col-lg-12 col-xl-12 mb-3">
             <div class="card">
               <div class="card-body">
                 <div class="d-flex">
-                  
-                    <h5 class="card-title">
-                    <a href="/show/<%= place._id %>">
-                        <%= place.name %>
-                    </a>
-                    , (
-                    <a href="/show/<%= district._id %>">
-                        <%= place.district %>
-                    </a>
-                    )
-                  </h5>
-  
-                  <h5 class="card-title">
-                    <a href="/edit/<%= place._id %>" class="btn btn-danger">
-                        Edit
-                    </a>
-                  </h5>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xl-12">
+                            <h4 class="card-title">
+                                <a href="/show/<%= places._id %>">
+                                    <%= places.name %>
+                                </a>
+                                , (
+                                <a href="/show/<%= places.district._id %>">
+                                    <% places.district.forEach(district => { %>
+                                        <%= district.name %>
+                                    <% }) %>
+                                </a>
+                                )
+                            </h4>
+                        </div>
+                    </div>
+                    </div>
+                <div class="d-flex">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xl-12 float-left mb-3">
+                            <h5 class="card-title">
+                                <a href="/edit/<%= places._id %>" class="btn btn-light">
+                                    Edit
+                                </a>
+                            </h5>
+                        </div>
                 </div>
-  
-                <p class="card-text text-capitalize">
-                  <%= place.phoneNumber %>
-                </p>
-                <p class="card-text text-capitalize">
-                    <%= place.email %>
-                </p>
-                <p class="card-text text-capitalize">
-                    <%= place.website %>
-                </p>
-                <p class="card-text text-capitalize">
-                    <%= place.description %>
-                </p>
-                <p class="card-text text-capitalize">
-                    Added by: <%= place.addedBy.username %>
-                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-6">
+                    <div class="card-contact-details">
+                        <p class="card-text text-capitalize">
+                            <a href="tel: <%= places.phoneNumber %>">Phone Number</a> 
+                        </p>
+                        <p class="card-text text-capitalize">
+                            <a href="mailto: <%= places.email %>">Email</a>  
+                        </p>
+                        <p class="card-text text-capitalize">
+                            <a href="<%= places.website %>">Website</a>
+                        </p>
+                        <p class="card-text text-capitalize">
+                            <%= places.fullAddress.blockNumber %> <%= places.fullAddress.street %>, <%= places.fullAddress.postcode %> Singapore
+                        </p>
+                    </div>
+                        </br>
+                    <div class="mb-3">
+                        <p class="card-text text-capitalize">
+                            <strong><%= places.placeType %></strong>
+                        </p>
+                        <p class="card-text text-capitalize">
+                            <i><%= places.description %></i>
+                        </p>
+                    </div>
+                    <p class="card-text text-capitalize">
+                        Added by: <%= places.addedBy.username %>
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6">
+                    <img class="card-img-top img-fluid" src="<%= places.image %>" alt=" Place Image" style="width:100%; height: auto;">
+                </div>
+            </div>
 
               </div>
             </div>
