@@ -21,10 +21,10 @@
       
           <div id="collapseOne" class="collapse accordeon-cards" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-              <% places.forEach(place => { %>
-              <% if(place.placeType == "bar") {%>
                 <div class="container">
-                      <div class="row">
+                  <div class="row">
+                    <% places.forEach(place => { %>
+                      <% if(place.placeType == "bar") {%>
                         <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex">
                           <div class="card flex-fill">
                             <div class="card-body" style="height: 40%;">
@@ -80,11 +80,10 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-              <% } else {}; %>
-              <% }) %>
-
+                  <% } else {}; %>
+                  <% }) %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -99,12 +98,10 @@
           </div>
           <div id="collapseTwo" class="collapse accordeon-cards" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <% places.forEach(place => { %>
-                <% if(place.placeType == "restaurant") {%>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="row">
+              <div class="container">
+                <div class="row">
+                <% places.forEach(place => { %>
+                  <% if(place.placeType == "restaurant") {%>
                           <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex">
                             <div class="card flex-fill">
                               <div class="card-body" style="height: 40%;">
@@ -160,13 +157,10 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } else {}; %>
-                <% }) %>
-                
+                  <% } else {}; %>
+                  <% }) %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -180,12 +174,10 @@
           </div>
           <div id="collapseThree" class="collapse accordeon-cards" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
-              <% places.forEach(place => { %>
-                <% if(place.placeType == "shop") {%>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="row">
+              <div class="container">
+                <div class="row">
+                  <% places.forEach(place => { %>
+                    <% if(place.placeType == "shop") {%>
                           <div class="col-lg-4 col-md-6 col-sm-6 mb-3 d-flex">
                             <div class="card flex-fill">
                               <div class="card-body" style="height: 40%;">
@@ -241,13 +233,10 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
+                    <% } else {}; %>
+                    <% }) %>
                   </div>
-                <% } else {}; %>
-                <% }) %>
-
+                </div>
               </div>
           </div>
         </div>
