@@ -1,27 +1,49 @@
+body{
+    background-color: #fff7ea;
+}
 
 
 .card{
     border-radius: 10px;
-    border-color: black;
-    background-color: #F5F5F5;
+    border-color: solid black 5px;
+    background-color: #ffd6ba;
+}
+
+.btn-secondary{
+    background-color: #4682B4;
+    color: white !important;
+}
+
+.btn-outline-secondary{
+    background-color: #4682B4;
+    color: white !important;
 }
 
 .accordeon-cards{
-    background-color: rgba(235, 233, 233, 0.712);
+    background-color: #FFEFD5;
+}
+
+.accordeon-buttons{
+    background-color: #4682B4;
 }
 
 a:link {
     text-decoration: none;
-    color: #A63434;
+    color: #4682B4;
   }
 
   a:visited {
-    color: #A63434;
+    color: #96b9d5;
   }
 
   a:hover {
     text-decoration: underline;
-  }
+    color: #4682B4;
+}
+
+.a-card{
+    color: black;
+}
 
 .homepageImage {
     max-width: 100%;
@@ -54,7 +76,6 @@ a:link {
     line-height: 0.5;
 }
 
-/* .card-img-top{
-    max-width: 400px;
-    max-height: 350px;
-} */
+.card-img-top{
+    border-color: solid white 5px;
+}

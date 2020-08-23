@@ -1,10 +1,11 @@
-<div class="container mt-5">
-    <h1>List by Name</h1>
+<div class="container mt-4">
+    <h3>List by Name</h3>
+    <p>Browse by name through the complete list of places where you can find natural wine in Singapore.</p>
     </br>
     <div class="mb-12">
       <div class="row">
         <div class="col-md-12">
-              <a class="btn btn-light" href="/new">Add New Place</a>
+              <a class="btn btn-secondary" href="/new">Add New Place</a>
           </div>
       </div>
     </div>
@@ -18,7 +19,7 @@
               <div class="card-body" style="height: 40%;">
                 <img class="card-img-top img-fluid" src="<%= place.image %>" alt="Card image" style="width:100%; height: auto; margin-bottom: 5px;">
                 <h5 class="card-title">
-                  <a href="/show/<%= place._id %>"><%= place.name %></a>
+                  <a href="/show/<%= place._id %>" class="a-card"><%= place.name %></a>
                     (<% place.district.forEach(district => { %>
                     <%= district.name %>
                       <% }) %>
