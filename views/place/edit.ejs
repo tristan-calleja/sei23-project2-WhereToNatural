@@ -41,13 +41,17 @@
                 <div class="col-md-10">
                     <select name="district" class="form-control"  required>
                         <option value="">Select One</option>
-                        <% districts.forEach(district => { %>
-                        <option value="<%= district._id %>" 
-                            <%= (district._id.equals(place.district._id)) ? "selected": "" %> > 
-                            <%= district.name %> 
-                        </option>
-                        <% }) %>
-                    </select>
+                          <% districts.forEach(district => { %>
+                            <%= (district._id == place.district._id) ? %>
+                              <option value="<%= district._id %>" selected = "selected"> 
+                                <%= district.name %> 
+                              </option>
+                          <%  :  %>
+                              <option value="<%= district._id %>"> 
+                                <%= district.name %> 
+                              </option>
+                          <% ) %>
+                      </select>
                 </div>
                 </div>
 
